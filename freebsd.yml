@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+    ansible_python_interpreter: "/usr/local/bin/python2.7"
+  tasks:
+    - pkgng: name=go state=present
+    - pkgng: name=git state=present
+    - file: path=~vagrant/go owner=vagrant status=directory
+    - lineinfile: dest=~vagrant/.profile line='export GOPATH=~/go'

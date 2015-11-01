@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - yum: name=* state=latest
+    - yum: name=go state=present
+    - yum: name=git state=present
+    - file: path=~vagrant/go owner=vagrant status=directory
+    - lineinfile: dest=~vagrant/.profile line='export GOPATH=~/go'
+

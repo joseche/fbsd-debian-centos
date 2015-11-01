@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - apt: name=* state=latest
+    - apt: name=go state=present
+    - apt: name=git state=present
+    - file: path=~vagrant/go owner=vagrant status=directory
+    - lineinfile: dest=~vagrant/.profile line='export GOPATH=~/go'
